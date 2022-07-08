@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--         这边的包路径和sql语句需要根据自身的表的写-->
+<mapper namespace="com.example.sharedbike.mapper.UserMapper">
+    <select id="findAll" resultType="com.example.sharedbike.entity.User">
+        select * from data.user
+    </select>
+    <select id = "findById" resultType="com.example.sharedbike.entity.User">
+        select * from data.user where USERID = #{USERID}
+    </select>
+    <insert id = "insert" parameterType="com.example.sharedbike.entity.User">
+        insert into data.user (USERID,USERNAME,EMAIL,PASSWORD,TYPE)
+            values (#{USERID},#{USERNAME},#{EMAIL},#{PASSWORD},#{TYPE})
+    </insert>
+    <delete id = "delete" parameterType="com.example.sharedbike.entity.User">
+        delete from data.user where USERID = #{USERID};
+    </delete>
+    <update id="modifyEmail" parameterType="com.example.sharedbike.entity.User">
+        update data.user set EMAIL = #{email} where USERID = #{userid};
+    </update>
+    <update id="modifyUsername" parameterType="com.example.sharedbike.entity.User">
+        update data.user set USERNAME = #{username} where USERID = #{userid};
+    </update>
+    <update id="modifyPassword" parameterType="String">
+        update data.user
+            set PASSWORD = #{password,jdbcType = VARCHAR}
+            where USERID = #{userid,jdbcType =VARCHAR};
+    </update>
+</mapper>

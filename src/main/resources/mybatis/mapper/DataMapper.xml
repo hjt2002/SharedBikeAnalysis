@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.sharedbike.mapper.DataMapper">
+    <!-- 定义ResultMapper type为HashMap -->
+    <resultMap id = "numMap" type="java.util.HashMap">
+        <result column="casual" property="casual" jdbcType="INTEGER"/>
+        <result column="registered" property="registered" jdbcType="INTEGER"/>
+    </resultMap>
+    <!-- SQL查询语句-->
+    <select id="countVipNum" resultMap="numMap">
+            select sum(casual),sum(registered) from data.data;
+    </select>
+
+    <resultMap id = "numMapOfMonth" type="java.util.HashMap">
+            <result column="mnth" property="month" jdbcType="INTEGER"/>
+            <result column="casual" property="casual" jdbcType="INTEGER"/>
+            <result column="registered" property="registered" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id = "countVipNumByMonth" resultMap="numMapOfMonth">
+            select mnth,sum(casual),sum(registered) from data.data group by mnth;
+    </select>
+
+    <resultMap id = "numMapOfSeason" type="java.util.HashMap">
+        <result column="season" property="season" jdbcType="INTEGER"/>
+        <result column="casual" property="casual" jdbcType="INTEGER"/>
+        <result column="registered" property="registered" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id = "countVipNumBySeason" resultMap="numMapOfMonth">
+            select season,sum(casual),sum(registered) from data.data group by season;
+    </select>
+
+    <resultMap id = "BikeNumMapOfWeekday" type="java.util.HashMap">
+        <result column="weekday" property="weekday" jdbcType="INTEGER"/>
+        <result column="cnt" property="count" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id = "countRentNumByWeekday" resultMap="BikeNumMapOfWeekday">
+            select weekday,sum(cnt) from data.data group by weekday;
+    </select>
+
+    <resultMap id = "BikeNumMapOfWeather" type="java.util.HashMap">
+        <result column="weathersit" property="weather" jdbcType="INTEGER"/>
+        <result column="cnt" property="count" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id = "countRentNumByWeather" resultMap="BikeNumMapOfWeather">
+            select weathersit,sum(cnt) from data.data group by weathersit;
+    </select>
+
+    <resultMap id = "BikeNumMapOfWeatherIndex" type="java.util.HashMap">
+        <result column="temp" property="temperature" jdbcType="FLOAT"/>
+        <result column="atemp" property="airTemperature" jdbcType="FLOAT"/>
+        <result column="hum" property="humidity" jdbcType="FLOAT"/>
+        <result column="windspeed" property="windSpeed" jdbcType="FLOAT"/>
+        <result column="cnt" property="count" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id = "countRentNumByWeatherIndex" resultMap="BikeNumMapOfWeatherIndex">
+        select temp,atemp,hum,windspeed,cnt from data.data;
+    </select>
+
+</mapper>
+
