@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--         这边的包路径和sql语句需要根据自身的表的写-->
+<mapper namespace="com.example.sharedbike.mapper.WeatherMapper">
+</mapper>

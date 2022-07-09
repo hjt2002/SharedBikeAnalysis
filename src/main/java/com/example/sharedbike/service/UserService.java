@@ -5,11 +5,13 @@ import com.example.sharedbike.mapper.UserMapper;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class UserService {
 
 

@@ -14,7 +14,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="SharedBike" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -137,5 +139,9 @@
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.5.9" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:2.0.7" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.47" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.13" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.15" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.15" level="project" />
   </component>
 </module>

@@ -3,10 +3,12 @@ package com.example.sharedbike.service;
 import com.example.sharedbike.mapper.DataMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class DataService {
 
     final
