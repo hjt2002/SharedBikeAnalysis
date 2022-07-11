@@ -3,7 +3,6 @@ package com.example.sharedbike.util;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import jdk.jshell.execution.Util;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -17,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.SignatureException;
 import java.util.*;
 
-public class weatherByHour {
+public class WeatherByHour {
     private String TIANQI_Hourly_WEATHER_URL = "https://api.seniverse.com/v3/weather/hourly.json";
 
     private String TIANQI_API_USER_ID = "P_R5qLPxlLQFS68ab"; //
@@ -82,7 +81,7 @@ public class weatherByHour {
 
     public List<Map<String,Object>> getHourlyWeather(String location) {
 //        weatherDaily dailyData = new weatherDaily();
-        weatherByHour weatherByHour = new weatherByHour();
+        WeatherByHour weatherByHour = new WeatherByHour();
 
         List<Map<String,Object>>list = null;
         try{String url = weatherByHour.generateGetHourlyWeatherURL(

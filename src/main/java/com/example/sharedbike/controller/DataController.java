@@ -24,28 +24,27 @@ public class DataController {
         return dataService.countVipNum();
     }
     @RequestMapping("/findVipByMonth")
-    public List<Map<String,Integer>> countVipNumByMonth(){
+    public List<Map<String,Object>> countVipNumByMonth(){
         return dataService.countVipNumByMonth();
     }
     @RequestMapping("/findVipBySeason")
-    public List<Map<String,Integer>> countVipNumBySeason(){
+    public List<Map<String,Object>> countVipNumBySeason(){
         return dataService.countVipNumBySeason();
     }
-
     //统计租车数量
-
     //每周每天租车人数0.1.2.3.4.5.6
     @RequestMapping("/findCountByWeekday")
-    public List<Map<String,Integer>> countPeopleNumByWeekday(){
+    public List<Map<String,Object>> countPeopleNumByWeekday(){
         return dataService.countRentNumByWeekday();
     }
-
     //不同天气下的租车人数
     @RequestMapping("/findCountByWeather")
-    public List<Map<String,Integer>> countPeopleNumByWeather(){
+    public List<Map<String,Object>> countPeopleNumByWeather(){
         return dataService.countRentNumByWeather();
     }
 
-
-
+    @RequestMapping("findCountByWeatherIndex")
+    public List<Map<String,Object>> countPeopleNumByWeatherIndex(){
+        return dataService.countRentNumByWeatherIndex();
+    }
 }

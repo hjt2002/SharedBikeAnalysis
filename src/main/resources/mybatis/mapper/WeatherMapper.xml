@@ -4,4 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--         这边的包路径和sql语句需要根据自身的表的写-->
 <mapper namespace="com.example.sharedbike.mapper.WeatherMapper">
+    <insert id = "insert" parameterType="com.example.sharedbike.entity.Weather">
+        insert into data.weather(datatime,season,holiday,workingday,weather,
+                                 temp,atemp,humidity,windspeed)
+        values (#{datatime},#{season},#{holiday},#{workingday},#{weather}
+        ,#{temp},#{atemp},#{humidity},#{windspeed});
+    </insert>
 </mapper>

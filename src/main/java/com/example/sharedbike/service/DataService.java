@@ -21,16 +21,16 @@ public class DataService {
     public List<Map<String,Object>> countVipNum(){
         return dataMapper.countVipNum();
     }
-    public List<Map<String,Integer>> countVipNumByMonth(){
+    public List<Map<String,Object>> countVipNumByMonth(){
         return dataMapper.countVipNumByMonth();
     }
-    public List<Map<String,Integer>> countVipNumBySeason(){
+    public List<Map<String,Object>> countVipNumBySeason(){
         return dataMapper.countVipNumBySeason();
     }
-    public List<Map<String,Integer>> countRentNumByWeekday(){
+    public List<Map<String,Object>> countRentNumByWeekday(){
         return dataMapper.countRentNumByWeekday();
     }
-    public List<Map<String,Integer>> countRentNumByWeather(){
+    public List<Map<String,Object>> countRentNumByWeather(){
         return dataMapper.countRentNumByWeather();
     }
     public List<Map<String,Object>> countRentNumByWeatherIndex(){
