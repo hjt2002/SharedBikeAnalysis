@@ -22,8 +22,9 @@ public class WeatherController {
     //通过地址访问24小时之内的天气数据
     @PostMapping("/addWeather")
     public void addWeather(@RequestBody Map<String,Object>map){
-        Weather weather = new Weather();
+
         String location = map.get("location").toString();
         weatherService.add(location);
+
     }
 }

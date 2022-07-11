@@ -3,7 +3,7 @@ package com.example.sharedbike.entity;
 
 public class Weather {
 
-  private java.sql.Timestamp datatime;
+  private String datetime;
   private long season;
   private long holiday;
   private long workingday;
@@ -13,12 +13,12 @@ public class Weather {
   private long humidity;
   private double windspeed;
 
-  public java.sql.Timestamp getDatatime() {
-    return datatime;
+  public String getDatetime() {
+    return datetime;
   }
 
-  public void setDatatime(java.sql.Timestamp datatime) {
-    this.datatime = datatime;
+  public void setDatetime(String datatime) {
+    this.datetime = datatime;
   }
 
 
