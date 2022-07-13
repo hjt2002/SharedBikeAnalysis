@@ -3,12 +3,9 @@ package com.example.sharedbike.util;
 import com.example.sharedbike.entity.Prediction;
 import com.example.sharedbike.entity.Weather;
 
-import javax.sound.midi.Soundbank;
-import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 public class PythonInvoke {
 
@@ -30,7 +27,7 @@ public class PythonInvoke {
 
         Process proc;
         String line = null;
-        float predict = 0;
+        int predict = 0;
         try {
             String[] pargs = new String[]{"python","E:\\pythonProject\\Model\\Prediction.py",
                     datetime, String.valueOf(season),String.valueOf(holiday),
@@ -44,7 +41,7 @@ public class PythonInvoke {
             while ((line = in.readLine()) != null) {
 //                System.out.println(line);
                 line = line.substring(1,line.length()-1);
-                predict = Float.parseFloat(line);
+                predict = (int)Float.parseFloat(line);
                 System.out.println(predict);
             }
             in.close();
@@ -54,7 +51,7 @@ public class PythonInvoke {
         }
         //获取预测数据
 //        line = "111";
-
+//        predict = (int)predict;
         Prediction prediction = new Prediction();
         prediction.setDatetime(datetime);
         prediction.setLocation(location);

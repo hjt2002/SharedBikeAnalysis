@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--         这边的包路径和sql语句需要根据自身的表的写-->
+<mapper namespace="com.example.sharedbike.mapper.WeatherDayMapper">
+    <insert id = "add" parameterType = "com.example.sharedbike.entity.WeatherDay">
+        insert ignore into data.weather_day
+            (date,season,holiday,workingday,weather,
+                                 temp,atemp,humidity,windspeed,location)
+            values (#{date},#{season},#{holiday},#{workingday},#{weather}
+        ,#{temp},#{atemp},#{humidity},#{windspeed},#{location});
+    </insert>
+
+    <select id="findByPk" parameterType="String" resultType= "com.example.sharedbike.entity.WeatherDay">
+        select * from data.weather_day where date = #{date} and location = #{location};
+    </select>
+</mapper>

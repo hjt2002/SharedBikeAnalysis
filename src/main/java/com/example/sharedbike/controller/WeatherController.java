@@ -20,20 +20,22 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-    //通过地址访问24小时之内的天气数据
+    //通过地址添加未来24小时之内的天气数据
     @PostMapping("/addWeather")
     public List<Map<String,Object>> addWeather(@RequestBody Map<String,Object>map){
         String location = map.get("location").toString();
         return weatherService.add(location);
     }
 
-    //通过时间datetime格式和地址的天气信息
+    //通过时间datetime和地址访问指定天气信息
     @PostMapping("findWeather")
     public Weather findWeather(@RequestBody Map<String,Object> map){
         String datetime = map.get("datetime").toString();
         String location = map.get("location").toString();
         return weatherService.findWeather(datetime,location);
     }
+
+    //通过时间date和location访问天气信息
     @PostMapping("findWeatherByDate")
     public Weather findWeatherByDate(@RequestBody Map<String,Object> map){
         String date = map.get("date").toString();
