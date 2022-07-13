@@ -1,6 +1,7 @@
 package com.example.sharedbike.controller;
 
 import com.example.sharedbike.service.DataService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,5 +47,18 @@ public class DataController {
     @RequestMapping("findCountByWeatherIndex")
     public List<Map<String,Object>> countPeopleNumByWeatherIndex(){
         return dataService.countRentNumByWeatherIndex();
+    }
+
+    @GetMapping("findCountByWeatherIndexOnPage")
+    public List<Map<String,Object>> findByPage(String pageNow,String pageSize){
+        int page = 0;
+        int size = 0;
+        try{
+            page = Integer.parseInt(pageNow);
+            size = Integer.parseInt(pageSize);
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
+        return dataService.findByPage(page,size);
     }
 }

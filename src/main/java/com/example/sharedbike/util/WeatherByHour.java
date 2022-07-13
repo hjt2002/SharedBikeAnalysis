@@ -213,6 +213,9 @@ public class WeatherByHour {
             //日期格式统一及工作日的判断
             for (Map<String,Object> map:list
             ) {
+                //加入地址信息
+                map.put("location",location);
+
                 //对日期进行格式统一
                 String dateinit = (String) map.get("time");
                 String date = dateinit.substring(0,10);
@@ -285,7 +288,6 @@ public class WeatherByHour {
         }catch (Exception e) {
             System.out.println("Exception:" + e);
         }
-//        return (HashMap<String, Object>) dailyMap;
         return list;
     }
 }

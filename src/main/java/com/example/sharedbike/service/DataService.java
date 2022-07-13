@@ -36,4 +36,9 @@ public class DataService {
     public List<Map<String,Object>> countRentNumByWeatherIndex(){
         return dataMapper.countRentNumByWeatherIndex();
     }
+
+    public List<Map<String,Object>> findByPage(Integer pageNow, Integer rows) {
+        int start = (pageNow-1)*rows;
+        return dataMapper.findByPage(start,rows);
+    }
 }

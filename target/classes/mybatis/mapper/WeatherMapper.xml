@@ -7,8 +7,11 @@
     <insert id = "add" parameterType="com.example.sharedbike.entity.Weather">
         insert ignore into data.weather
             (datetime,season,holiday,workingday,weather,
-                                 temp,atemp,humidity,windspeed)
+                                 temp,atemp,humidity,windspeed,location)
             values (#{datetime},#{season},#{holiday},#{workingday},#{weather}
-            ,#{temp},#{atemp},#{humidity},#{windspeed});
+            ,#{temp},#{atemp},#{humidity},#{windspeed},#{location});
     </insert>
+    <select id="findWeather" parameterType="String" resultType="com.example.sharedbike.entity.Weather">
+        select * from data.weather where weather.datetime = #{datetime} and weather.location = #{location};
+    </select>
 </mapper>

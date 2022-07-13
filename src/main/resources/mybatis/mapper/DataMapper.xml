@@ -60,5 +60,9 @@
         select temp,atemp,hum,windspeed,cnt from data.data;
     </select>
 
+    <select id="findByPage" resultMap="BikeNumMapOfWeatherIndex">
+        select temp,atemp,hum,windspeed,cnt from data.data limit #{start},#{rows};
+    </select>
+
 </mapper>
 

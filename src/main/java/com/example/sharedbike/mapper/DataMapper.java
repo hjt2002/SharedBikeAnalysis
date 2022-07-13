@@ -1,6 +1,7 @@
 package com.example.sharedbike.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -18,8 +19,9 @@ public interface DataMapper {
     List<Map<String,Object>> countRentNumByWeekday();
     //统计天气条件（1.晴 2.雨 3.雪）
     List<Map<String,Object>> countRentNumByWeather();
-
     //统计天气指标下的对应租用单车数量
     List<Map<String,Object>> countRentNumByWeatherIndex();
+
+    List<Map<String,Object>> findByPage(@Param("start")Integer start,@Param("rows") Integer rows);
 
 }

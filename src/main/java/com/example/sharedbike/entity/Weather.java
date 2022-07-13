@@ -6,19 +6,21 @@ public class Weather {
   private String datetime;
   private long season;
   private long holiday;
-  private long workingday;
   private long weather;
+  private long workingday;
   private double temp;
   private double atemp;
   private long humidity;
   private double windspeed;
+  private String location;
+
 
   public String getDatetime() {
     return datetime;
   }
 
-  public void setDatetime(String datatime) {
-    this.datetime = datatime;
+  public void setDatetime(String datetime) {
+    this.datetime = datetime;
   }
 
 
@@ -40,21 +42,21 @@ public class Weather {
   }
 
 
-  public long getWorkingday() {
-    return workingday;
-  }
-
-  public void setWorkingday(long workingday) {
-    this.workingday = workingday;
-  }
-
-
   public long getWeather() {
     return weather;
   }
 
   public void setWeather(long weather) {
     this.weather = weather;
+  }
+
+
+  public long getWorkingday() {
+    return workingday;
+  }
+
+  public void setWorkingday(long workingday) {
+    this.workingday = workingday;
   }
 
 
@@ -91,6 +93,15 @@ public class Weather {
 
   public void setWindspeed(double windspeed) {
     this.windspeed = windspeed;
+  }
+
+
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
   }
 
 }

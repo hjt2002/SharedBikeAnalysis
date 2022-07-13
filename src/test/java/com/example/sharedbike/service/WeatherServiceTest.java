@@ -1,27 +1,35 @@
 package com.example.sharedbike.service;
 
 import com.alibaba.fastjson.JSON;
-import com.example.sharedbike.entity.User;
 import com.example.sharedbike.entity.Weather;
 import com.example.sharedbike.mapper.WeatherMapper;
 import com.example.sharedbike.util.WeatherByHour;
-import org.springframework.stereotype.Service;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
-@Service
-@Transactional
-public class WeatherService {
-    final
-    WeatherMapper weatherMapper;
+import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest
+class WeatherServiceTest {
 
-    public WeatherService(WeatherMapper weatherMapper) {
-        this.weatherMapper = weatherMapper;
+    @Autowired
+    WeatherService weatherService;
+    @Test
+    void findWeather() {
+        String datetime = "2022/07/11 16:00:00";
+        String location = "beijing";
+        Weather weather = weatherService.findWeather(datetime,location);
+        System.out.println(weather);
     }
 
-    public List<Map<String,Object>> add(String location){
+    @Autowired
+    WeatherMapper weatherMapper;
+    @Test
+    void add() {
+        String location = "beijing";
         //获得未来24小时的天气信息
         WeatherByHour weatherByHour = new WeatherByHour();
         List<Map<String,Object>> resultList = weatherByHour.getHourlyWeather(location);
@@ -31,11 +39,5 @@ public class WeatherService {
             Weather weather = JSON.parseObject(JSON.toJSONString(map),Weather.class);
             weatherMapper.add(weather);
         }
-        return resultList;
     }
-
-    public Weather findWeather(String datetime,String location){
-        return weatherMapper.findWeather(datetime,location);
-    }
-
 }
