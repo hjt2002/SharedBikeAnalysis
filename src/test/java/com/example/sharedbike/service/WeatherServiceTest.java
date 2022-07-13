@@ -40,4 +40,11 @@ class WeatherServiceTest {
             weatherMapper.add(weather);
         }
     }
+
+    @Test
+    void findWeatherByDate() {
+        String location = "beijing";
+        String date = "2022/07/11" + "%";
+        weatherMapper.findWeatherByDate(date,location);
+    }
 }

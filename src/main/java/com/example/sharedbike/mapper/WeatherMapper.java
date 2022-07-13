@@ -9,4 +9,5 @@ import java.util.List;
 public interface WeatherMapper {
     void add(Weather weather);
     Weather findWeather(String datetime,String location);
+    Weather findWeatherByDate(String date,String location);
 }

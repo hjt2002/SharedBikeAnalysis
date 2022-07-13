@@ -38,4 +38,12 @@ public class WeatherService {
         return weatherMapper.findWeather(datetime,location);
     }
 
+    public Weather findWeatherByDate(String date,String location){
+        try{
+            return weatherMapper.findWeatherByDate(date,location);
+        }catch (NullPointerException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

@@ -5,7 +5,7 @@ public class Prediction {
 
   private String location;
   private String datetime;
-  private long prediction;
+  private float prediction;
 
 
   public String getLocation() {
@@ -26,11 +26,11 @@ public class Prediction {
   }
 
 
-  public long getPrediction() {
+  public float getPrediction() {
     return prediction;
   }
 
-  public void setPrediction(long prediction) {
+  public void setPrediction(float prediction) {
     this.prediction = prediction;
   }
 

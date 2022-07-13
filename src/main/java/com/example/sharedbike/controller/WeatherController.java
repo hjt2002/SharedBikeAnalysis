@@ -23,7 +23,6 @@ public class WeatherController {
     //通过地址访问24小时之内的天气数据
     @PostMapping("/addWeather")
     public List<Map<String,Object>> addWeather(@RequestBody Map<String,Object>map){
-
         String location = map.get("location").toString();
         return weatherService.add(location);
     }
@@ -34,5 +33,12 @@ public class WeatherController {
         String datetime = map.get("datetime").toString();
         String location = map.get("location").toString();
         return weatherService.findWeather(datetime,location);
+    }
+    @PostMapping("findWeatherByDate")
+    public Weather findWeatherByDate(@RequestBody Map<String,Object> map){
+        String date = map.get("date").toString();
+        date = date +  "%";
+        String location = map.get("location").toString();
+        return weatherService.findWeatherByDate(date,location);
     }
 }

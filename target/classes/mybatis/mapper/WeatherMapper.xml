@@ -14,4 +14,11 @@
     <select id="findWeather" parameterType="String" resultType="com.example.sharedbike.entity.Weather">
         select * from data.weather where weather.datetime = #{datetime} and weather.location = #{location};
     </select>
+    <select id="findWeatherByDate" parameterType="String" resultType="com.example.sharedbike.entity.Weather">
+        select avg(season) season,avg(holiday) holiday,avg(weather) weather,avg(workingday) workingday,
+               avg(temp) temp,avg(atemp) atemp,avg(humidity) humidity,
+               avg(windspeed) windspeed,location from data.weather
+                    where datetime like #{date} and location = #{location};
+
+    </select>
 </mapper>
