@@ -2,7 +2,6 @@ package com.example.sharedbike.controller;
 
 import com.example.sharedbike.entity.Prediction;
 import com.example.sharedbike.service.PredictionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,15 +21,23 @@ public class PredictionController {
         this.predictionService = predictionService;
     }
 
+
+    @PostMapping("updateByLocation")
+    public boolean update(@RequestBody Map<String,Object> map){
+        String location = map.get("location").toString();
+        return predictionService.updatePrediction(location);
+    }
+
     @PostMapping("/getPrediction")
-    public Prediction getPrediction(@RequestBody Map map){
+    public Prediction getPrediction(@RequestBody Map<String,Object> map){
         String datetime = map.get("datetime").toString();
         String location = map.get("location").toString();
-        Prediction prediction = predictionService.getPrediction(location,datetime);
-        if(prediction != null){
-            return prediction;
-        }else{
-            return null;
-        }
+        return predictionService.getPrediction(location,datetime);
+    }
+    @PostMapping("/getAdvice")
+    public Map<String,String> getAdvice(@RequestBody Map<String,Object>map){
+        String datetime = map.get("datetime").toString();
+        String location = map.get("location").toString();
+        return predictionService.getAdvice(datetime,location);
     }
 }
